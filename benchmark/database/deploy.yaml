@@ -44,5 +44,5 @@ metadata:
 spec:
   containers:
   - name: dbench
-    image: gnunus/dbench:latest
+    image: gnunu/dbench:latest
     command: ["/dbench"]
