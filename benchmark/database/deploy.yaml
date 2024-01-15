@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: postgres
+spec:
+  containers:
+  - name: postgres
+    image: postgres:alpine
+    env:
+    - name: POSTGRES_USER
+      value: "bench"
+    - name: POSTGRES_PASSWORD
+      value: "bench"
+    - name: POSTGRES_DB
+      value: "bench"
+    ports:
+    - containerPort: 5432
+    volumeMounts:
+    - name: datapath
+      mountPath: /var/lib/postgresql/data
+  volumes:
+  - name: datapath
+    hostPath:
+      path: /var/data
+      type: Directory
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+spec:
+  type: ClutserIP
+  selector:
+    app: postgres
+  ports:
+  - protocol: TCP
+    port: 5432
+    targetPort: 5432
