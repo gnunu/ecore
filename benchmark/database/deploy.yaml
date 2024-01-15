@@ -36,3 +36,13 @@ spec:
   - protocol: TCP
     port: 5432
     targetPort: 5432
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dbench
+spec:
+  containers:
+  - name: dbench
+    image: gnunus/dbench:latest
+    command: ["/dbench"]
