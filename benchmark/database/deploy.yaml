@@ -29,7 +29,7 @@ kind: Service
 metadata:
   name: postgres
 spec:
-  type: ClutserIP
+  type: ClusterIP
   selector:
     app: postgres
   ports:
