@@ -106,7 +106,7 @@ func (d *database) delete(i int) {
 }
 
 func (d *database) bench() {
-	for k := 0; k < 10000; k++ {
+	for k := 0; ; k++ {
 		for i := k; i < k+10; i++ {
 			d.create(i)
 		}
