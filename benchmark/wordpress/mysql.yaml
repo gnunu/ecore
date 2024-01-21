@@ -42,11 +42,3 @@ spec:
           value: wordpress
         - name: MYSQL_PASSWORD
           value: wordpress
-        volumeMounts:
-        - name: mysql-persistent-storage
-          mountPath: /var/lib/mysql
-      volumes:
-      - name: mysql-persistent-storage
-        hostPath:
-          path: /var/mysql
-          type: Directory
