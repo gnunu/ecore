@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-server
+  labels:
+    app: nginx-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-server
+  template:
+    metadata:
+      labels:
+        app: nginx-server
+    spec:
+      containers:
+        - name: nginx-server
+          image: gnunu/nginx-original
+          ports:
+          - containerPort: 443
+          env:
+          - name: WORKLOAD
+            value: nginx_original
+          - name: MODE
+            value: https
+          - name: PROTOCOL
+            value: TLSv1.3
+          - name: CERT
+            value: rsa2048
+          - name: CIPHER
+            value: AES128-GCM-SHA256
+          - name: NGINX_WORKERS
+            value: 2
+          - name: MAX_CORE_WORKER_CLIENT
+            value: false
+          - name: MAX_CORE_WORKER_CLIENT
+            value: false
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: nginx-server
+  name: nginx-server
+spec:
+  selector:
+    app: nginx-server
+  ports:
+  - protocol: TCP
+    port: 443
+    targetPort: 443
