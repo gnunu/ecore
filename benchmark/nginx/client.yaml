@@ -21,7 +21,7 @@ spec:
           - containerPort: 443
           env:
           - name: NGINX_SERVICE_NAME
-            value: nginx-server
+            value: nginx-server-service
           - name: MODE
             value: https
           - name: PROTOCOL
@@ -32,5 +32,5 @@ spec:
             value: TLS_AES_128_GCM_SHA256
           - name: GETFILE
             value: "index.html"
-          - name: REQUEST
-            value: "100000000"
+          - name: TEST_TIME
+            value: "1000000"

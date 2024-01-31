@@ -40,7 +40,7 @@ kind: Service
 metadata:
   labels:
     app: nginx-server
-  name: nginx-server
+  name: nginx-server-service
 spec:
   selector:
     app: nginx-server
