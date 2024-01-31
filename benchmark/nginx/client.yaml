@@ -29,8 +29,8 @@ spec:
           - name: CERT
             value: rsa2048
           - name: CIPHER
-            value: AES128-GCM-SHA256
+            value: TLS_AES_128_GCM_SHA256
           - name: GETFILE
-            value: index.html
+            value: "index.html"
           - name: REQUEST
-            value: 100000000
+            value: "100000000"
